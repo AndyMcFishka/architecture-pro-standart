@@ -445,6 +445,9 @@
         <mxCell id="W2" value="Подключить сайт к API ставок и приёма обращений" vertex="1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dce8f5;strokeColor=#cbd2dc;fontFamily=Arial;fontSize=21;fontColor=#24334a;spacing=5;align=center;verticalAlign=middle;">
           <mxGeometry as="geometry" x="2628.3333333333335" y="1028" width="276.6666666666665" height="108" />
         </mxCell>
+        <mxCell id="W0" value="Измерить и ускорить загрузку платёжных справочников до отклика меньше секунды" vertex="1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dce8f5;strokeColor=#cbd2dc;fontFamily=Arial;fontSize=21;fontColor=#24334a;spacing=5;align=center;verticalAlign=middle;">
+          <mxGeometry as="geometry" x="695.0" y="1588" width="610.0" height="108" />
+        </mxCell>
         <mxCell id="W3" value="Добавить форму депозита с выбором счёта и суммы" vertex="1" parent="1" style="whiteSpace=wrap;html=0;fillColor=#dce8f5;strokeColor=#cbd2dc;fontFamily=Arial;fontSize=21;fontColor=#24334a;spacing=5;align=center;verticalAlign=middle;">
           <mxGeometry as="geometry" x="2095.0" y="1588" width="260.0" height="108" />
         </mxCell>
@@ -556,19 +559,21 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-A1-W3" edge="1" parent="links" source="A1" target="W3" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#a7afb8;strokeWidth=1.6;dashed=1;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.31;">
+        <mxCell id="edge-A1-W3" edge="1" parent="links" source="A1" target="W3" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#a7afb8;strokeWidth=1.6;dashed=1;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.26;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="639.6666666666666" y="304.24" />
-              <mxPoint x="639.6666666666666" y="1621.48" />
+              <mxPoint x="639.6666666666666" y="1583" />
+              <mxPoint x="2085.0" y="1583" />
+              <mxPoint x="2085.0" y="1616.08" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge-A2-C2" edge="1" parent="links" source="A2" target="C2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#8750af;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.26;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1331.4" y="304.24" />
-              <mxPoint x="1331.4" y="743" />
+              <mxPoint x="1329.3333333333333" y="304.24" />
+              <mxPoint x="1329.3333333333333" y="743" />
               <mxPoint x="2618.3333333333335" y="743" />
               <mxPoint x="2618.3333333333335" y="776.08" />
             </Array>
@@ -577,8 +582,8 @@
         <mxCell id="edge-A2-D2" edge="1" parent="links" source="A2" target="D2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#8750af;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.26;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1331.4" y="304.24" />
-              <mxPoint x="1331.4" y="520.08" />
+              <mxPoint x="1329.3333333333333" y="304.24" />
+              <mxPoint x="1329.3333333333333" y="520.08" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -601,8 +606,8 @@
         <mxCell id="edge-B1-B2" edge="1" parent="links" source="B1" target="B2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#7c8793;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.26;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1343.8" y="1252.24" />
-              <mxPoint x="1343.8" y="1196.08" />
+              <mxPoint x="1339.6666666666667" y="1252.24" />
+              <mxPoint x="1339.6666666666667" y="1196.08" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -657,8 +662,8 @@
         <mxCell id="edge-D1-C2" edge="1" parent="links" source="D1" target="C2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#2563b8;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.36;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1356.2" y="576.24" />
-              <mxPoint x="1356.2" y="740" />
+              <mxPoint x="1350.0" y="576.24" />
+              <mxPoint x="1350.0" y="740" />
               <mxPoint x="2615.3333333333335" y="740" />
               <mxPoint x="2615.3333333333335" y="786.88" />
             </Array>
@@ -667,24 +672,24 @@
         <mxCell id="edge-D1-D2" edge="1" parent="links" source="D1" target="D2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#2563b8;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.36;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1356.2" y="576.24" />
-              <mxPoint x="1356.2" y="530.88" />
+              <mxPoint x="1350.0" y="576.24" />
+              <mxPoint x="1350.0" y="530.88" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge-D1-D3" edge="1" parent="links" source="D1" target="D3" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#2563b8;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.31;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1356.2" y="576.24" />
-              <mxPoint x="1356.2" y="641.48" />
+              <mxPoint x="1350.0" y="576.24" />
+              <mxPoint x="1350.0" y="641.48" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge-D1-W2" edge="1" parent="links" source="D1" target="W2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#2563b8;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.235;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1356.2" y="576.24" />
-              <mxPoint x="1356.2" y="1023" />
+              <mxPoint x="1350.0" y="576.24" />
+              <mxPoint x="1350.0" y="1023" />
               <mxPoint x="2618.3333333333335" y="1023" />
               <mxPoint x="2618.3333333333335" y="1053.38" />
             </Array>
@@ -730,27 +735,35 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="edge-I0-W0" edge="1" parent="links" source="I0" target="W0" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#7c8793;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.31;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660.3333333333334" y="1392.24" />
+              <mxPoint x="660.3333333333334" y="1621.48" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="edge-I1-B2" edge="1" parent="links" source="I1" target="B2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#b86616;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.36;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1368.6" y="1392.24" />
-              <mxPoint x="1368.6" y="1206.88" />
+              <mxPoint x="1360.3333333333333" y="1392.24" />
+              <mxPoint x="1360.3333333333333" y="1206.88" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge-I1-I2" edge="1" parent="links" source="I1" target="I2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#b86616;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.31;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1368.6" y="1392.24" />
-              <mxPoint x="1368.6" y="1341.48" />
+              <mxPoint x="1360.3333333333333" y="1392.24" />
+              <mxPoint x="1360.3333333333333" y="1341.48" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge-I1-L2" edge="1" parent="links" source="I1" target="L2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#b86616;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.31;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1368.6" y="1392.24" />
-              <mxPoint x="1368.6" y="880" />
+              <mxPoint x="1360.3333333333333" y="1392.24" />
+              <mxPoint x="1360.3333333333333" y="880" />
               <mxPoint x="2082.0" y="880" />
               <mxPoint x="2082.0" y="921.48" />
             </Array>
@@ -759,8 +772,8 @@
         <mxCell id="edge-I1-N2" edge="1" parent="links" source="I1" target="N2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#b86616;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.26;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1368.6" y="1392.24" />
-              <mxPoint x="1368.6" y="1443" />
+              <mxPoint x="1360.3333333333333" y="1392.24" />
+              <mxPoint x="1360.3333333333333" y="1443" />
               <mxPoint x="2085.0" y="1443" />
               <mxPoint x="2085.0" y="1476.08" />
             </Array>
@@ -847,6 +860,14 @@
         </mxCell>
         <mxCell id="edge-T2-AUTO" edge="1" parent="links" source="T2" target="AUTO" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#3d8053;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
           <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge-W0-W3" edge="1" parent="links" source="W0" target="W3" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#7c8793;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.36;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1370.6666666666667" y="1672.24" />
+              <mxPoint x="1370.6666666666667" y="1626.88" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="edge-W1-W2" edge="1" parent="links" source="W1" target="W2" style="edgeStyle=segmentEdgeStyle;rounded=0;endArrow=block;endFill=1;strokeColor=#7c8793;strokeWidth=1.6;dashed=0;dashPattern=7 6;jumpStyle=arc;jumpSize=5;exitX=1;exitY=0.78;entryX=0;entryY=0.385;">
           <mxGeometry as="geometry" relative="1">
