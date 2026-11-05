@@ -1,0 +1,78 @@
+@startuml
+!pragma layout smetana
+!include <C4/C4_Container>
+title Банк "Стандарт" — депозитный MVP: контейнеры
+LAYOUT_TOP_DOWN()
+skinparam nodesep 90
+skinparam ranksep 90
+skinparam shadowing false
+skinparam defaultTextAlignment center
+
+AddRelTag("event", $lineColor="#327A65", $lineStyle=DashedLine())
+AddRelTag("legacy", $lineColor="#999999", $lineStyle=DashedLine())
+Person(client, "Клиент", "Новый или действующий")
+Person(back, "Бэк-офис", "Депозитный / кредитный; раздельные права")
+Person(front, "Сотрудник отделения", "Идентификация и документы")
+Person(operator, "Оператор", "Консультация")
+System(site, "Сайт", "PHP / React; ставки и форма обращения")
+System_Boundary(ib, "Интернет-банк") {
+ Container(browser, "Веб-интерфейс", "Браузер / HTML", "Выбор продукта, счёта и суммы; ввод СМС-кода")
+ Container(monolith, "Сервер интернет-банка", "ASP.NET MVC / .NET Framework 4.5", "Аутентификация; вызовы новых API от имени клиента")
+ ContainerDb(ibdb, "БД интернет-банка", "MS SQL", "Данные существующей платформы")
+}
+System_Boundary(platform, "Депозитная платформа — новые компоненты") {
+ Container(deposit, "Депозитный сервис", "ASP.NET Core / .NET 10 LTS", "API, ставки; создание и проверка кода; задания на уведомления")
+ ContainerDb(depdb, "БД депозитного сервиса", "MS SQL", "Ставки, заявки, копия счетов, аудит, outbox")
+ Container(leads, "Сервис обращений", "ASP.NET Core / .NET 10 LTS", "Приём контактов и публикация обращений")
+ ContainerDb(leaddb, "БД обращений", "MS SQL", "Контакты, продукт, идентификатор, outbox")
+ ContainerQueue(kafka, "Брокер сообщений", "Kafka", "Заявки, обращения, статусы, изменения счетов; отдельные топики и права")
+ Container(ccadapter, "Адаптер колл-центра", "Kafka consumer / HTTPS client", "Доставка с повторами и ограничением нагрузки")
+}
+System_Boundary(abs, "АБС") {
+ Container(adapter, "Адаптер АБС", "Kafka consumer/producer / HTTPS client", "Приём заявок; публикация событий; ограничение нагрузки")
+ Container(api, "Внутренний API АБС", "HTTPS / JSON; новый контракт", "Приём заявок; события и начальная выгрузка счетов")
+ Container(desktop, "Рабочее место АБС", "Delphi", "Подтверждение / отказ; обслуживание в отделении")
+ ContainerDb(oracle, "БД и бизнес-логика АБС", "Oracle / PL-SQL", "Проверки, счета, открытие, дедупликация, журнал событий")
+}
+System_Boundary(notifications, "Система уведомлений") {
+ Container(notify, "Сервис уведомлений", "ASP.NET Core / .NET 10 LTS", "Доставка СМС, повторы, сроки и ошибки; без проверки кодов")
+ ContainerDb(notifydb, "БД уведомлений", "MS SQL", "Задания и состояние отправки; уникальные ID, сроки, защищённое содержимое")
+}
+System(cc, "Система колл-центра", "Платформа подрядчика; HTTPS API с дедупликацией")
+System(sms, "Банковский СМС-шлюз", "Существующая интеграция с телеком-оператором")
+System_Ext(tel, "Телеком-оператор", "Доставка СМС")
+Rel(client, browser, "Работает с продуктом")
+Rel(client, site, "Смотрит ставки; оставляет контакты", "HTTPS")
+Rel(browser, monolith, "Форма, заявка, код, статус", "HTTPS")
+Rel(monolith, ibdb, "Данные платформы", "SQL")
+Rel(monolith, deposit, "Ставки, счета, заявка, код, статус; доверенный клиент", "HTTPS")
+Rel(site, deposit, "Только общие ставки", "HTTPS")
+Rel(site, leads, "ФИО, телефон, продукт", "HTTPS")
+Rel(back, deposit, "Ведёт ставки; раздельные права", "HTTPS / веб-интерфейс")
+Rel(deposit, depdb, "Сохраняет и читает", "SQL")
+Rel(leads, leaddb, "Обращение + outbox атомарно", "SQL")
+Rel(deposit, kafka, "Заявки и задания на СМС (разные топики)", "Kafka / TLS", $tags="event")
+Rel(kafka, deposit, "Статусы и изменения счетов", "Kafka / TLS", $tags="event")
+Rel(leads, kafka, "Обращения с сайта", "Kafka / TLS", $tags="event")
+Rel(kafka, ccadapter, "Обращения", "Kafka / TLS", $tags="event")
+Rel(ccadapter, cc, "Создаёт обращение по уникальному ID", "HTTPS")
+Rel(kafka, adapter, "Заявки", "Kafka / TLS", $tags="event")
+Rel(adapter, kafka, "Статусы и изменения счетов", "Kafka / TLS", $tags="event")
+Rel(adapter, api, "Передаёт заявки; читает события и счета порциями", "HTTPS")
+Rel(api, oracle, "Вызывает бизнес-операции", "PL/SQL")
+Rel(back, desktop, "Депозитный бэк-офис: подтверждение / отказ")
+Rel(front, desktop, "Идентификация, открытие и документы")
+Rel(desktop, oracle, "Операции по правам сотрудника", "PL/SQL")
+Rel(operator, cc, "Ведёт консультацию", "Веб-интерфейс")
+Rel_U(operator, client, "Звонит и предлагает условия", "Телефон")
+Rel(client, front, "Идентификация и согласие", "В отделении")
+Rel(cc, abs, "Передаёт обращение", "Существующая интеграция*", $tags="legacy")
+Rel(kafka, notify, "Задания на доставку СМС", "Kafka / TLS", $tags="event")
+Rel(notify, notifydb, "Сохраняет задания и результат отправки", "SQL")
+Rel(notify, sms, "Отправляет СМС по ID задания", "Защищённый API")
+Rel(abs, sms, "Приглашение с согласованной ставкой", "Существующий процесс*", $tags="legacy")
+Rel(sms, tel, "Передаёт СМС", "Протокол оператора")
+Rel_U(tel, client, "Доставляет СМС")
+Rel(monolith, oracle, "Платежи и текущие счета — прежний процесс", "Существующий доступ к БД", $tags="legacy")
+footer Зелёный пунктир — события Kafka. Серый пунктир — существующие связи вне нового онлайн-процесса.\n* Точки реализации существующих интеграций не заданы; связи показаны с границей АБС.\nЦОД и реплики не дублируются на логической схеме; размещение и ограничения описаны в ADR.
+@enduml
